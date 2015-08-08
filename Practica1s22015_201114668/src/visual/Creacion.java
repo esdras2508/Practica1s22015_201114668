@@ -1,6 +1,8 @@
 package visual;
 
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import practica1s22015_201114668.ListaObjetos;
 import practica1s22015_201114668.NodoListaObjetos;
 import javax.swing.JOptionPane;
@@ -57,6 +59,9 @@ public class Creacion extends javax.swing.JFrame{
         jScrollPane4 = new javax.swing.JScrollPane();
         objetoNombre = new javax.swing.JTextPane();
         jButton3 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        ManejoDatos = new javax.swing.JComboBox();
+        prueba = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -212,42 +217,69 @@ public class Creacion extends javax.swing.JFrame{
                 .addGap(0, 51, Short.MAX_VALUE))
         );
 
+        jLabel9.setText("Seleccione como desea manejar los objetos agregados antes de continuar:");
+
+        ManejoDatos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pila", "Cola" }));
+
+        prueba.setText("jLabel10");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(verObjetos)
+                        .addGap(85, 85, 85))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(verObjetos)))
-                .addGap(85, 85, 85))
+                        .addGap(103, 103, 103)
+                        .addComponent(prueba, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(ManejoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton5)
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(152, 152, 152))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(verObjetos)))
+                        .addGap(27, 27, 27)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(verObjetos)))
-                .addGap(27, 27, 27)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(253, 253, 253)
+                        .addComponent(prueba, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(ManejoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -259,11 +291,16 @@ public class Creacion extends javax.swing.JFrame{
         if(personaje.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Debe ingresar el nombre del personaje", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
-            this.objetos.addFinal("personaje principal", this.personaje.getText());
+            //ImageIcon ImgPersonaje = new ImageIcon(getClass().getResource("mario1.png"));
+            
+            ImageIcon ImgPersonaje = new ImageIcon(ClassLoader.getSystemResource("imagenes/mario1.png"));
+            
+            this.objetos.addFinal("personaje principal", this.personaje.getText(), ImgPersonaje);
             jButton1.setEnabled(false);
             personaje.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Personaje Agregado Correctamente", "Agregado", JOptionPane.INFORMATION_MESSAGE);
             verObjetos.setEnabled(true);
+            prueba.setIcon(new ImageIcon(this.objetos.getInicio().getImagen().getImage().getScaledInstance(75,75,Image.SCALE_SMOOTH)));
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -274,7 +311,8 @@ public class Creacion extends javax.swing.JFrame{
         if(castillo.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Debe ingresar el nombre del castillo", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
-            this.objetos.addFinal("castillo", this.castillo.getText());
+            ImageIcon ImgCastillo = new ImageIcon(ClassLoader.getSystemResource("imagenes/mario1.png"));
+            this.objetos.addFinal("castillo", this.castillo.getText(), ImgCastillo);
             jButton2.setEnabled(false);
             castillo.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Castillo Agregado Correctamente", "Agregado", JOptionPane.INFORMATION_MESSAGE);
@@ -289,7 +327,8 @@ public class Creacion extends javax.swing.JFrame{
         if(objetoNombre.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Debe ingresar el nombre del objeto", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
-            this.objetos.addFinal(""+tipoObjeto.getSelectedItem(), this.objetoNombre.getText());
+            ImageIcon imgObjeto = imagenObjeto(""+tipoObjeto.getSelectedItem());
+            this.objetos.addFinal(""+tipoObjeto.getSelectedItem(), this.objetoNombre.getText(), imgObjeto);
             JOptionPane.showMessageDialog(null, ""+tipoObjeto.getSelectedItem()+" Agregado Correctamente", "Agregado", JOptionPane.INFORMATION_MESSAGE);
             objetoNombre.setText("");
             verObjetos.setEnabled(true);
@@ -298,6 +337,27 @@ public class Creacion extends javax.swing.JFrame{
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    public ImageIcon imagenObjeto(String tipo){
+        ImageIcon ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+        
+        if(tipo.equals("Ficha")){
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+        }else if(tipo.equals("Suelo")){
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/suelo.gif"));
+        }else if(tipo.equals("Pared")){
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+        }else if(tipo.equals("Goomba")){
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+        } else if(tipo.equals("Koopa")){
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+        }else if(tipo.equals("Hongo de Vida")){
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+        }
+        
+        
+        return ImgObjeto;
+    }
+    
     private void verObjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verObjetosActionPerformed
         // TODO add your handling code here:
         Objetos obj = new Objetos(this);
@@ -309,6 +369,17 @@ public class Creacion extends javax.swing.JFrame{
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        Tablero ir;
+        if(ManejoDatos.getSelectedItem().equals("Pila")){
+            ir = new Tablero(objetos.getFin());
+            this.setVisible(false);
+            ir.setVisible(true);
+        }else if(ManejoDatos.getSelectedItem().equals("Cola")){
+            ir = new Tablero(objetos.getInicio());
+            this.setVisible(false);
+            ir.setVisible(true);
+        }
+        
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -350,6 +421,7 @@ public class Creacion extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ManejoDatos;
     public javax.swing.JTextPane castillo;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
@@ -363,12 +435,14 @@ public class Creacion extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextPane objetoNombre;
     public javax.swing.JTextField personaje;
+    private javax.swing.JLabel prueba;
     private javax.swing.JComboBox tipoObjeto;
     private javax.swing.JButton verObjetos;
     // End of variables declaration//GEN-END:variables

@@ -5,14 +5,19 @@
  */
 package practica1s22015_201114668;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author esdras
  */
-public class NodoListaObjetos {
+public class NodoListaObjetos extends JLabel{
     NodoListaObjetos siguiente;
     NodoListaObjetos anterior;
     String Tipo, Nombre;
+    ImageIcon imagen;
     int Posicion;
     
     //Obtener datos del nodo
@@ -25,6 +30,9 @@ public class NodoListaObjetos {
     public int getPosicion(){
         return Posicion;
     }
+    public ImageIcon getImagen(){
+        return imagen;
+    }
     
     //Obtener Nodo siguiente o anterior
     public NodoListaObjetos getSiguiente(){
@@ -34,14 +42,15 @@ public class NodoListaObjetos {
         return anterior;
     }
     
-    public NodoListaObjetos(String tipo, String nombre, int posicion){
-        this(tipo, nombre, posicion, null, null);
+    public NodoListaObjetos(String tipo, String nombre, int posicion, ImageIcon imagen){
+        this(tipo, nombre, posicion, imagen, null, null);
     }
     
-    public NodoListaObjetos(String tipo, String nombre, int posicion, NodoListaObjetos s, NodoListaObjetos a){
+    public NodoListaObjetos(String tipo, String nombre, int posicion, ImageIcon vista, NodoListaObjetos s, NodoListaObjetos a){
         Tipo = tipo;
         Nombre = nombre;
         Posicion = posicion;
+        this.setIcon(vista);
         siguiente = s;
         anterior = a;
         

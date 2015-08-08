@@ -5,6 +5,8 @@
  */
 package practica1s22015_201114668;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -36,14 +38,14 @@ public class ListaObjetos {
     
     
     
-    public void addFinal(String tipo, String nombre){
+    public void addFinal(String tipo, String nombre, ImageIcon fondo){
         if(!vacia()){
             pos++;
-            fin = new NodoListaObjetos(tipo, nombre, pos, null, fin);
+            fin = new NodoListaObjetos(tipo, nombre, pos, fondo, null, fin);
             fin.anterior.siguiente = fin;
         }else{
             pos++;
-            inicio = fin = new NodoListaObjetos(tipo, nombre, pos);
+            inicio = fin = new NodoListaObjetos(tipo, nombre, pos, fondo);
         }
     }
     
