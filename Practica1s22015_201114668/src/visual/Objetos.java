@@ -6,6 +6,9 @@
 
 package visual;
 
+import javax.swing.JOptionPane;
+import practica1s22015_201114668.NodoListaObjetos;
+
 /**
  *
  * @author esdras
@@ -15,8 +18,62 @@ public class Objetos extends javax.swing.JFrame {
     /**
      * Creates new form Objetos
      */
-    public Objetos() {
+
+    Creacion ver;
+    NodoListaObjetos aux;
+    public Objetos(Creacion aThis) {
+        ver = aThis;
         initComponents();
+        
+        aux = ver.objetos.getInicio();
+        txt1.setText(aux.getTipo());
+        txt2.setText(aux.getNombre());
+        p1.setText(""+aux.getPosicion());
+        p1.setVisible(false);
+        aux = aux.getSiguiente();
+        if(aux != null){
+            txt3.setText(aux.getTipo());
+            txt4.setText(aux.getNombre());
+            p2.setText(""+aux.getPosicion());
+            p2.setVisible(false);
+            aux = aux.getSiguiente();
+            if(aux != null){
+                txt5.setText(aux.getTipo());
+                txt6.setText(aux.getNombre());
+                p3.setText(""+aux.getPosicion());
+                p3.setVisible(false);
+                aux = aux.getSiguiente();
+                if(aux != null){
+                    txt7.setText(aux.getTipo());
+                    txt8.setText(aux.getNombre());
+                    p4.setText(""+aux.getPosicion());
+                    p4.setVisible(false);
+                    aux = aux.getSiguiente();
+                    if(aux != null){
+                        txt9.setText(aux.getTipo());
+                        txt10.setText(aux.getNombre());
+                        p5.setText(""+aux.getPosicion());
+                        p5.setVisible(false);
+                        aux = aux.getSiguiente();
+                    }else{
+                        e5.setEnabled(false);
+                    }
+                }else{
+                    e4.setEnabled(false);
+                    e5.setEnabled(false);
+                }    
+            }else{
+                e3.setEnabled(false);
+                e4.setEnabled(false);
+                e5.setEnabled(false);
+            }
+        }else{
+            e2.setEnabled(false);
+            e3.setEnabled(false);
+            e4.setEnabled(false);
+            e5.setEnabled(false);
+        }
+        
     }
 
     /**
@@ -28,48 +85,793 @@ public class Objetos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        atras = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txt1 = new javax.swing.JTextField();
+        txt2 = new javax.swing.JTextField();
+        g1 = new javax.swing.JButton();
+        e1 = new javax.swing.JButton();
+        txt3 = new javax.swing.JTextField();
+        txt4 = new javax.swing.JTextField();
+        e2 = new javax.swing.JButton();
+        g2 = new javax.swing.JButton();
+        txt5 = new javax.swing.JTextField();
+        txt6 = new javax.swing.JTextField();
+        e3 = new javax.swing.JButton();
+        g3 = new javax.swing.JButton();
+        txt7 = new javax.swing.JTextField();
+        txt8 = new javax.swing.JTextField();
+        e4 = new javax.swing.JButton();
+        g4 = new javax.swing.JButton();
+        txt9 = new javax.swing.JTextField();
+        txt10 = new javax.swing.JTextField();
+        e5 = new javax.swing.JButton();
+        g5 = new javax.swing.JButton();
+        mostrar = new javax.swing.JButton();
+        d1 = new javax.swing.JButton();
+        d2 = new javax.swing.JButton();
+        d3 = new javax.swing.JButton();
+        d4 = new javax.swing.JButton();
+        d5 = new javax.swing.JButton();
+        p1 = new javax.swing.JLabel();
+        p2 = new javax.swing.JLabel();
+        p3 = new javax.swing.JLabel();
+        p4 = new javax.swing.JLabel();
+        p5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        atras.setText("Volver a Creacion de Objetos");
+        atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                atrasActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Objetos Creados:");
+
+        txt1.setEditable(false);
+
+        txt2.setEditable(false);
+
+        g1.setText("Guardar");
+        g1.setEnabled(false);
+        g1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g1ActionPerformed(evt);
+            }
+        });
+
+        e1.setText("Editar");
+        e1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e1ActionPerformed(evt);
+            }
+        });
+
+        txt3.setEditable(false);
+
+        txt4.setEditable(false);
+
+        e2.setText("Editar");
+        e2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e2ActionPerformed(evt);
+            }
+        });
+
+        g2.setText("Guardar");
+        g2.setEnabled(false);
+        g2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g2ActionPerformed(evt);
+            }
+        });
+
+        txt5.setEditable(false);
+
+        txt6.setEditable(false);
+
+        e3.setText("Editar");
+        e3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e3ActionPerformed(evt);
+            }
+        });
+
+        g3.setText("Guardar");
+        g3.setEnabled(false);
+        g3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g3ActionPerformed(evt);
+            }
+        });
+
+        txt7.setEditable(false);
+
+        txt8.setEditable(false);
+
+        e4.setText("Editar");
+        e4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e4ActionPerformed(evt);
+            }
+        });
+
+        g4.setText("Guardar");
+        g4.setEnabled(false);
+        g4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g4ActionPerformed(evt);
+            }
+        });
+
+        txt9.setEditable(false);
+
+        txt10.setEditable(false);
+
+        e5.setText("Editar");
+        e5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e5ActionPerformed(evt);
+            }
+        });
+
+        g5.setText("Guardar");
+        g5.setEnabled(false);
+        g5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g5ActionPerformed(evt);
+            }
+        });
+
+        mostrar.setText("Mostar Mas..");
+        mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarActionPerformed(evt);
+            }
+        });
+
+        d1.setText("Eliminar");
+        d1.setEnabled(false);
+        d1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d1ActionPerformed(evt);
+            }
+        });
+
+        d2.setText("Eliminar");
+        d2.setEnabled(false);
+        d2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d2ActionPerformed(evt);
+            }
+        });
+
+        d3.setText("Eliminar");
+        d3.setEnabled(false);
+        d3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d3ActionPerformed(evt);
+            }
+        });
+
+        d4.setText("Eliminar");
+        d4.setEnabled(false);
+        d4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d4ActionPerformed(evt);
+            }
+        });
+
+        d5.setText("Eliminar");
+        d5.setEnabled(false);
+        d5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt9, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(txt10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(e5)
+                                .addGap(18, 18, 18)
+                                .addComponent(g5)
+                                .addGap(18, 18, 18)
+                                .addComponent(d5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(p5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(txt8, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(e4)
+                                .addGap(18, 18, 18)
+                                .addComponent(g4)
+                                .addGap(18, 18, 18)
+                                .addComponent(d4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(e3)
+                                .addGap(18, 18, 18)
+                                .addComponent(g3)
+                                .addGap(18, 18, 18)
+                                .addComponent(d3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(e2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(g2))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(e1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(g1)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(d1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(p1))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(d2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mostrar)
+                        .addGap(36, 36, 36))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(mostrar))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(g1)
+                    .addComponent(e1)
+                    .addComponent(d1)
+                    .addComponent(p1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(g2)
+                            .addComponent(e2)
+                            .addComponent(d2)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(g3)
+                        .addComponent(e3)
+                        .addComponent(d3))
+                    .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(g4)
+                        .addComponent(e4)
+                        .addComponent(d4))
+                    .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(g5)
+                        .addComponent(e5)
+                        .addComponent(d5))
+                    .addComponent(p5, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(135, 135, 135))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(atras)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jButton1)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(atras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(ver == null){
+            ver = new Creacion();
+        }else{
+            ver.setVisible(true);
+            
+        }
+        
+    }//GEN-LAST:event_atrasActionPerformed
 
+    private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
+        // TODO add your handling code here:
+        e1.setEnabled(false);
+        e2.setEnabled(false);
+        e3.setEnabled(false);
+        e4.setEnabled(false);
+        e5.setEnabled(false);
+        mostrar.setEnabled(false);
+        atras.setEnabled(false);
+        
+        txt2.setEditable(true);
+        g1.setEnabled(true);
+        d1.setEnabled(true);
+    }//GEN-LAST:event_e1ActionPerformed
+
+    private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
+        // TODO add your handling code here:
+        e1.setEnabled(false);
+        e2.setEnabled(false);
+        e3.setEnabled(false);
+        e4.setEnabled(false);
+        e5.setEnabled(false);
+        mostrar.setEnabled(false);
+        atras.setEnabled(false);
+        
+        txt4.setEditable(true);
+        txt4.setEnabled(true);
+        g2.setEnabled(true);
+        d2.setEnabled(true);
+    }//GEN-LAST:event_e2ActionPerformed
+
+    private void e3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e3ActionPerformed
+        // TODO add your handling code here:
+        e1.setEnabled(false);
+        e2.setEnabled(false);
+        e3.setEnabled(false);
+        e4.setEnabled(false);
+        e5.setEnabled(false);
+        mostrar.setEnabled(false);
+        atras.setEnabled(false);
+        
+        txt6.setEditable(true);
+        txt6.setEnabled(true);
+        g3.setEnabled(true);
+        d3.setEnabled(true);
+    }//GEN-LAST:event_e3ActionPerformed
+
+    private void e4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e4ActionPerformed
+        // TODO add your handling code here:
+        e1.setEnabled(false);
+        e2.setEnabled(false);
+        e3.setEnabled(false);
+        e4.setEnabled(false);
+        e5.setEnabled(false);
+        mostrar.setEnabled(false);
+        atras.setEnabled(false);
+        
+        txt8.setEditable(true);
+        txt8.setEnabled(true);
+        g4.setEnabled(true);
+        d4.setEnabled(true);
+    }//GEN-LAST:event_e4ActionPerformed
+
+    private void e5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e5ActionPerformed
+        // TODO add your handling code here:
+        e1.setEnabled(false);
+        e2.setEnabled(false);
+        e3.setEnabled(false);
+        e4.setEnabled(false);
+        e5.setEnabled(false);
+        mostrar.setEnabled(false);
+        atras.setEnabled(false);
+        
+        txt10.setEditable(true);
+        txt10.setEnabled(true);
+        g5.setEnabled(true);
+        d5.setEnabled(true);
+    }//GEN-LAST:event_e5ActionPerformed
+
+    private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
+        // TODO add your handling code here:
+        if(aux != null){
+            txt1.setText(""); txt2.setText(""); txt3 .setText(""); txt4.setText(""); 
+            txt5.setText(""); txt6.setText(""); txt7.setText(""); txt8.setText(""); 
+            txt9.setText(""); txt10.setText("");
+           
+            txt1.setText(aux.getTipo());
+            txt2.setText(aux.getNombre());
+            p1.setText(""+aux.getPosicion());
+            aux = aux.getSiguiente();
+            if(aux != null){
+                txt3.setText(aux.getTipo());
+                txt4.setText(aux.getNombre());
+                p2.setText(""+aux.getPosicion());
+                aux = aux.getSiguiente();
+                if(aux != null){
+                    txt5.setText(aux.getTipo());
+                    txt6.setText(aux.getNombre());
+                    p3.setText(""+aux.getPosicion());
+                    aux = aux.getSiguiente();
+                    if(aux != null){
+                        txt7.setText(aux.getTipo());
+                        txt8.setText(aux.getNombre());
+                        p4.setText(""+aux.getPosicion());
+                        aux = aux.getSiguiente();
+                        if(aux != null){
+                            txt9.setText(aux.getTipo());
+                            txt10.setText(aux.getNombre());
+                            p5.setText(""+aux.getPosicion());
+                            aux = aux.getSiguiente();
+                        }else{
+                            e5.setEnabled(false);
+                        }
+                    }else{
+                        e4.setEnabled(false);
+                        e5.setEnabled(false);
+                    }    
+                }else{
+                    e3.setEnabled(false);
+                    e4.setEnabled(false);
+                    e5.setEnabled(false);
+                }
+            }else{
+                e2.setEnabled(false);
+                e3.setEnabled(false);
+                e4.setEnabled(false);
+                e5.setEnabled(false);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay mas objetos agregados, "
+                    + "Si desea ver nuevamente los objetos haga clic en Mostrar mas... "
+                    + "ó haga clic en atras para agregar mas objetos", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            aux = ver.objetos.getInicio();
+            txt1.setText(""); txt2.setText(""); txt3 .setText(""); txt4.setText(""); 
+            txt5.setText(""); txt6.setText(""); txt7.setText(""); txt8.setText(""); 
+            txt9.setText(""); txt10.setText("");
+        }
+        
+    }//GEN-LAST:event_mostrarActionPerformed
+
+    private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.editar(txt2.getText(), Integer.parseInt(p1.getText()));
+        g1.setEnabled(false);
+        d1.setEnabled(false);
+        mostrar.setEnabled(true);
+        atras.setEnabled(true);
+        txt2.setEnabled(false);
+        verificar(txt1.getText(), txt2.getText());//verifica si personaje o castillo a cambiado
+        actualizar();
+    }//GEN-LAST:event_g1ActionPerformed
+
+    private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.editar(txt4.getText(), Integer.parseInt(p2.getText()));
+        g2.setEnabled(false);
+        d2.setEnabled(false);
+        mostrar.setEnabled(true);
+        atras.setEnabled(true);
+        txt4.setEnabled(false);
+        verificar(txt3.getText(), txt4.getText());//verifica si personaje o castillo a cambiado
+        actualizar();
+    }//GEN-LAST:event_g2ActionPerformed
+
+    private void g3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g3ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.editar(txt5.getText(), Integer.parseInt(p3.getText()));
+        g3.setEnabled(false);
+        d3.setEnabled(false);
+        mostrar.setEnabled(true);
+        atras.setEnabled(true);
+        txt6.setEnabled(false);
+        verificar(txt5.getText(), txt6.getText());//verifica si personaje o castillo a cambiado
+        actualizar();
+    }//GEN-LAST:event_g3ActionPerformed
+
+    private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.editar(txt7.getText(), Integer.parseInt(p4.getText()));
+        g4.setEnabled(false);
+        d4.setEnabled(false);
+        mostrar.setEnabled(true);
+        atras.setEnabled(true);
+        txt8.setEnabled(false);
+        verificar(txt7.getText(), txt8.getText());//verifica si personaje o castillo a cambiado
+        actualizar();
+    }//GEN-LAST:event_g4ActionPerformed
+
+    private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.editar(txt9.getText(), Integer.parseInt(p5.getText()));
+        g5.setEnabled(false);
+        d5.setEnabled(false);
+        mostrar.setEnabled(true);
+        atras.setEnabled(true);
+        txt10.setEnabled(false);
+        verificar(txt9.getText(), txt10.getText());//verifica si personaje o castillo a cambiado
+        actualizar();
+    }//GEN-LAST:event_g5ActionPerformed
+
+    private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.eliminar(Integer.parseInt(p1.getText()));
+        if(ver.objetos.getFin() == ver.objetos.getInicio()){
+            ver.personaje.setText("");
+            ver.personaje.setEditable(true);
+            ver.personaje.setEnabled(true);
+            ver.jButton1.setEnabled(true);
+            ver.castillo.setText("");
+            ver.castillo.setEditable(true);
+            ver.castillo.setEnabled(true);
+            ver.jButton2.setEnabled(true);
+            this.setVisible(false);
+            ver.setVisible(true);
+        }else if(txt1.getText().equals("personaje principal")){
+            ver.personaje.setText("");
+            ver.personaje.setEditable(true);
+            ver.personaje.setEnabled(true);
+            ver.jButton1.setEnabled(true);
+            g1.setEnabled(false);
+            actualizar();
+        }else if(txt1.getText().equals("castillo")){
+            ver.castillo.setText("");
+            ver.castillo.setEditable(true);
+            ver.castillo.setEnabled(true);
+            ver.jButton2.setEnabled(true);
+            g1.setEnabled(false);
+            actualizar();
+        }else{
+            g1.setEnabled(false);
+       actualizar();
+        }
+       
+    }//GEN-LAST:event_d1ActionPerformed
+
+    private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.eliminar(Integer.parseInt(p2.getText()));
+        if(txt3.getText().equals("personaje principal")){
+            ver.personaje.setText("");
+            ver.personaje.setEditable(true);
+            ver.jButton1.setEnabled(true);
+        }else if(txt3.getText().equals("castillo")){
+            ver.castillo.setText("");
+            ver.castillo.setEditable(true);
+            ver.castillo.setEnabled(true);
+            ver.jButton2.setEnabled(true);
+        }
+       g2.setEnabled(false);
+       actualizar();
+       
+       
+    }//GEN-LAST:event_d2ActionPerformed
+
+    private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.eliminar(Integer.parseInt(p3.getText()));
+        if(txt5.getText().equals("personaje principal")){
+            ver.personaje.setText("");
+            ver.personaje.setEditable(true);
+            ver.jButton1.setEnabled(true);
+        }else if(txt5.getText().equals("castillo")){
+            ver.castillo.setText("");
+            ver.castillo.setEditable(true);
+            ver.castillo.setEnabled(true);
+            ver.jButton2.setEnabled(true);
+        }
+        d3.setEnabled(false);
+        txt6.setEditable(false);
+       g3.setEnabled(false);
+       actualizar();
+    }//GEN-LAST:event_d3ActionPerformed
+
+    private void d4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d4ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.eliminar(Integer.parseInt(p4.getText()));
+        if(txt7.getText().equals("personaje principal")){
+            ver.personaje.setText("");
+            ver.personaje.setEditable(true);
+            ver.jButton1.setEnabled(true);
+        }else if(txt7.getText().equals("castillo")){
+            ver.castillo.setText("");
+            ver.castillo.setEditable(true);
+            ver.castillo.setEnabled(true);
+            ver.jButton2.setEnabled(true);
+        }
+        d4.setEnabled(false);
+        txt8.setEditable(false);
+       g4.setEnabled(false);
+       actualizar();
+    }//GEN-LAST:event_d4ActionPerformed
+
+    private void d5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d5ActionPerformed
+        // TODO add your handling code here:
+        ver.objetos.eliminar(Integer.parseInt(p5.getText()));
+        if(txt9.getText().equals("personaje principal")){
+            ver.personaje.setText("");
+            ver.personaje.setEditable(true);
+            ver.jButton1.setEnabled(true);
+        }else if(txt9.getText().equals("castillo")){
+            ver.castillo.setText("");
+            ver.castillo.setEditable(true);
+            ver.castillo.setEnabled(true);
+            ver.jButton2.setEnabled(true);
+        }
+        d5.setEnabled(false);
+        txt10.setEditable(false);
+       g5.setEnabled(false);
+       actualizar();
+    }//GEN-LAST:event_d5ActionPerformed
+
+    public void verificar(String valor, String cambio){
+        if(valor.equals("personaje principal")){
+            ver.personaje.setText(cambio);
+        }else if(valor.equals("castillo")){
+            ver.castillo.setText(cambio);
+        }
+            
+    }
+    
+    public void actualizar()
+    {
+               txt1.setText(""); txt2.setText(""); txt3 .setText(""); txt4.setText(""); 
+            txt5.setText(""); txt6.setText(""); txt7.setText(""); txt8.setText(""); 
+            txt9.setText(""); txt10.setText("");
+            d2.setEnabled(false);
+            txt4.setEnabled(false);
+            mostrar.setEnabled(true);
+            atras.setEnabled(true);
+            e1.setEnabled(true);
+            e2.setEnabled(true);
+            e3.setEnabled(true);
+            e4.setEnabled(true);
+            e5.setEnabled(true);
+       aux = ver.objetos.getInicio();
+        txt1.setText(aux.getTipo());
+        txt2.setText(aux.getNombre());
+        p1.setText(""+aux.getPosicion());
+        p1.setVisible(false);
+        aux = aux.getSiguiente();
+        if(aux != null){
+            txt3.setText(aux.getTipo());
+            txt4.setText(aux.getNombre());
+            p2.setText(""+aux.getPosicion());
+            p2.setVisible(false);
+            aux = aux.getSiguiente();
+            if(aux != null){
+                txt5.setText(aux.getTipo());
+                txt6.setText(aux.getNombre());
+                p3.setText(""+aux.getPosicion());
+                p3.setVisible(false);
+                aux = aux.getSiguiente();
+                if(aux != null){
+                    txt7.setText(aux.getTipo());
+                    txt8.setText(aux.getNombre());
+                    p4.setText(""+aux.getPosicion());
+                    p4.setVisible(false);
+                    aux = aux.getSiguiente();
+                    if(aux != null){
+                        txt9.setText(aux.getTipo());
+                        txt10.setText(aux.getNombre());
+                        p5.setText(""+aux.getPosicion());
+                        p5.setVisible(false);
+                        aux = aux.getSiguiente();
+                    }else{
+                        e5.setEnabled(false);
+                    }
+                }else{
+                    e4.setEnabled(false);
+                    e5.setEnabled(false);
+                }    
+            }else{
+                e3.setEnabled(false);
+                e4.setEnabled(false);
+                e5.setEnabled(false);
+            }
+        }else{
+            e2.setEnabled(false);
+            e3.setEnabled(false);
+            e4.setEnabled(false);
+            e5.setEnabled(false);
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton atras;
+    private javax.swing.JButton d1;
+    private javax.swing.JButton d2;
+    private javax.swing.JButton d3;
+    private javax.swing.JButton d4;
+    private javax.swing.JButton d5;
+    private javax.swing.JButton e1;
+    private javax.swing.JButton e2;
+    private javax.swing.JButton e3;
+    private javax.swing.JButton e4;
+    private javax.swing.JButton e5;
+    private javax.swing.JButton g1;
+    private javax.swing.JButton g2;
+    private javax.swing.JButton g3;
+    private javax.swing.JButton g4;
+    private javax.swing.JButton g5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostrar;
+    private javax.swing.JLabel p1;
+    private javax.swing.JLabel p2;
+    private javax.swing.JLabel p3;
+    private javax.swing.JLabel p4;
+    private javax.swing.JLabel p5;
+    private javax.swing.JTextField txt1;
+    private javax.swing.JTextField txt10;
+    private javax.swing.JTextField txt2;
+    private javax.swing.JTextField txt3;
+    private javax.swing.JTextField txt4;
+    private javax.swing.JTextField txt5;
+    private javax.swing.JTextField txt6;
+    private javax.swing.JTextField txt7;
+    private javax.swing.JTextField txt8;
+    private javax.swing.JTextField txt9;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,5 +21,6 @@ public class Practica1s22015_201114668 {
         abrir.setVisible(true);
         
     }
+    public Creacion a;
     
 }

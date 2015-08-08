@@ -13,14 +13,35 @@ public class NodoListaObjetos {
     NodoListaObjetos siguiente;
     NodoListaObjetos anterior;
     String Tipo, Nombre;
+    int Posicion;
     
-    public NodoListaObjetos(String tipo, String nombre){
-        this(tipo, nombre, null, null);
+    //Obtener datos del nodo
+    public String getTipo(){
+        return Tipo;
+    }
+    public String getNombre(){
+        return Nombre;
+    }
+    public int getPosicion(){
+        return Posicion;
     }
     
-    public NodoListaObjetos(String tipo, String nombre, NodoListaObjetos s, NodoListaObjetos a){
+    //Obtener Nodo siguiente o anterior
+    public NodoListaObjetos getSiguiente(){
+        return siguiente;
+    }
+    public NodoListaObjetos getAnterior(){
+        return anterior;
+    }
+    
+    public NodoListaObjetos(String tipo, String nombre, int posicion){
+        this(tipo, nombre, posicion, null, null);
+    }
+    
+    public NodoListaObjetos(String tipo, String nombre, int posicion, NodoListaObjetos s, NodoListaObjetos a){
         Tipo = tipo;
         Nombre = nombre;
+        Posicion = posicion;
         siguiente = s;
         anterior = a;
         
