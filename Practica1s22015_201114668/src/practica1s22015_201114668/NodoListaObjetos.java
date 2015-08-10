@@ -50,6 +50,7 @@ public class NodoListaObjetos extends JLabel{
         Tipo = tipo;
         Nombre = nombre;
         Posicion = posicion;
+        imagen = vista;
         this.setIcon(vista);
         siguiente = s;
         anterior = a;

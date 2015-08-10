@@ -311,7 +311,7 @@ public class Creacion extends javax.swing.JFrame{
         if(castillo.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Debe ingresar el nombre del castillo", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }else{
-            ImageIcon ImgCastillo = new ImageIcon(ClassLoader.getSystemResource("imagenes/mario1.png"));
+            ImageIcon ImgCastillo = new ImageIcon(ClassLoader.getSystemResource("imagenes/castillo.png"));
             this.objetos.addFinal("castillo", this.castillo.getText(), ImgCastillo);
             jButton2.setEnabled(false);
             castillo.setEnabled(false);

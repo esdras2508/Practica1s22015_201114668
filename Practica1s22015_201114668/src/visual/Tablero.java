@@ -5,7 +5,22 @@
  */
 package visual;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import javafx.scene.layout.Border;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import practica1s22015_201114668.Matriz;
 import practica1s22015_201114668.NodoListaObjetos;
+import practica1s22015_201114668.NodoMatriz;
 
 /**
  *
@@ -13,6 +28,11 @@ import practica1s22015_201114668.NodoListaObjetos;
  */
 public class Tablero extends javax.swing.JFrame {
 
+    Matriz juego = new Matriz();
+    NodoMatriz dibujo;
+    public int posX, columnas;
+    public int posY, filas;
+    public NodoMatriz aux;
     /**
      * Creates new form Tablero
      */
@@ -21,6 +41,53 @@ public class Tablero extends javax.swing.JFrame {
         initComponents();
         objetos = fin;
         
+        juego.addFila();
+        dibujar(juego);
+        
+        objetos.setBounds(500,20, 250,150);
+        objetos.setOpaque(true);
+        objetos.setIcon(new ImageIcon(objetos.getImagen().getImage().getScaledInstance(75, 75, BufferedImage.SCALE_SMOOTH)) );
+        objetos.setText("Tipo: "+objetos.getTipo() +"\n" + "Nombre: "+objetos.getNombre());
+        add(objetos);
+    }
+    
+    public void dibujar(Matriz tablero){
+        dibujo = tablero.getRaiz();
+        aux = dibujo;
+        posX = 10;
+        posY = 500;
+       
+       
+        for(int c1 = 0; c1 < tablero.posFila; c1++){
+            for(int c=0; c < tablero.PosCol; c++){
+                dibujo.setBounds(posX,posY, 80,80);
+                dibujo.setOpaque(true);
+                dibujo.setBackground(Color.CYAN);
+                javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+
+                dibujo.setBorder(border);
+                add(dibujo);
+                posX = posX + 80;
+                dibujo = dibujo.getSiguiente();
+                columnas++;
+            }
+            posY = posY - 80;
+            columnas = posX;
+            posX = 10;
+            dibujo = aux.getArriba();
+            aux = aux.getArriba();
+            filas++;
+        }
+        
+        /*
+        JLabel l1 = new JLabel();
+        l1.setBounds(10, 300, 80, 80);
+        l1.setOpaque(true);
+        
+        l1.setIcon(new ImageIcon(objetos.getImagen().getImage().getScaledInstance(75, 75, BufferedImage.SCALE_SMOOTH)) );
+        l1.setBackground(Color.CYAN);
+        l1.setAlignmentX(TOP_ALIGNMENT);
+        add(l1);*/
         
     }
 
@@ -36,7 +103,8 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,40 +133,125 @@ public class Tablero extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 284, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
-        );
+        jButton3.setText("Agregar Fila");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Agregar Columna");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton3)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton4)))
+                .addContainerGap(314, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addContainerGap(379, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        juego.addFila();
+        
+        aux = juego.getRaiz();
+        while(aux.getArriba() != null){
+            aux = aux.getArriba();
+        }
+        
+        dibujo = aux;
+        posX = 10;
+        //posY = 500;
+       
+       
+            for(int c=0; c < juego.PosCol; c++){
+                dibujo.setBounds(posX,posY, 80,80);
+                dibujo.setOpaque(true);
+                dibujo.setBackground(Color.CYAN);
+                javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+
+                dibujo.setBorder(border);
+                add(dibujo);
+                posX = posX + 80;
+                dibujo = dibujo.getSiguiente();
+                
+            }
+            posY = posY - 80;
+        
+            actualizarPantalla();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void actualizarPantalla(){
+        
+        SwingUtilities.updateComponentTreeUI(this); 
+        
+        synchronized(getTreeLock()) {
+            this.validateTree(); 
+        }
+    } 
+    
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        juego.addCol();
+        posX = columnas;
+        
+        aux = juego.getRaiz();
+        while(aux.getSiguiente()!= null){
+            aux = aux.getSiguiente();
+        }
+        
+        dibujo = aux;
+        posY = 500;
+       
+       
+            for(int c=0; c < juego.posFila; c++){
+                dibujo.setBounds(posX,posY, 80,80);
+                dibujo.setOpaque(true);
+                dibujo.setBackground(Color.CYAN);
+                javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+
+                dibujo.setBorder(border);
+                add(dibujo);
+                posY = posY - 80;
+                dibujo = dibujo.getArriba();
+                
+            }
+            posX = posX + 80;
+            columnas = posX;
+            
+            actualizarPantalla();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,7 +261,8 @@ public class Tablero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
