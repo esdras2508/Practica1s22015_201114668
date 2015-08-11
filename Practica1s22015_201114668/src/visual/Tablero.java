@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import practica1s22015_201114668.Matriz;
 import practica1s22015_201114668.NodoListaObjetos;
@@ -505,8 +506,50 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        NodoListaObjetos restantes = objetos;
+        int  personaje=0, castillo=0, suelo=0, pared=0, goomba=0, koopa=0, ficha=0, vida=0;
+        
+        while(restantes != null){
+            switch (restantes.getTipo()){
+                case "personaje principal":
+                    personaje++;
+                    break;
+                case "castillo":
+                    castillo++;
+                    break;
+                case "Suelo":
+                    suelo++;
+                    break;
+                case "Pared":
+                    pared++;
+                    break;
+                case "Goomba":
+                    goomba++;
+                    break;
+                case "Koopa":
+                    koopa++;
+                    break;
+                case "Ficha":
+                    ficha++;
+                    break;
+                case "Hongo de Vida":
+                    vida++;
+                    break;
+                default:
+                    break;
+            }   
+            if(tipoDatos.equals("pila"))
+                restantes = restantes.getAnterior();
+            else
+                restantes = restantes.getSiguiente();
+        }
+        String Texto = "<html><body>Personaje: "+personaje + " <br> Castillo: "+castillo+" "
+                + "<br> Suelo: "+suelo+" <br> Pared: "+pared+" <br> Goomba: "+goomba+
+                " <br> Koopa: "+koopa+" <br> Fichas: "+ficha+" <br> Hongo de Vida: "+vida+" </body></html>";
         
         
+        
+        JOptionPane.showMessageDialog(null, Texto, "Objetos Restantes", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     public void crearImagen(String dir){
