@@ -6,27 +6,16 @@
 package visual;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.event.MouseEvent;
-import static java.awt.event.MouseEvent.MOUSE_CLICKED;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.layout.Border;
+import java.io.PrintWriter;
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import practica1s22015_201114668.Matriz;
 import practica1s22015_201114668.NodoListaObjetos;
@@ -48,10 +37,11 @@ public class Tablero extends javax.swing.JFrame {
     /**
      * Creates new form Tablero
      */
-    public NodoListaObjetos objetos;
+    public NodoListaObjetos objetos, graf;
     Tablero(NodoListaObjetos fin, String datos) {
         initComponents();
         objetos = fin;
+        graf = fin;
         tipoDatos = datos;
         
         juego.addFila();
@@ -89,6 +79,7 @@ public class Tablero extends javax.swing.JFrame {
 
                 dibujo.setBorder(border);
                 dibujo.setName(""+c1+c);
+                
                 add(dibujo);
                 
                 MouseListener ml = new MouseListener() {
@@ -204,6 +195,7 @@ public class Tablero extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         objLista = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -251,6 +243,13 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Ver Objetos restantes");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -264,8 +263,10 @@ public class Tablero extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(jButton3)
                         .addGap(37, 37, 37)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(objLista, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -280,7 +281,8 @@ public class Tablero extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton3)
-                            .addComponent(jButton4))))
+                            .addComponent(jButton4)
+                            .addComponent(jButton5))))
                 .addContainerGap(379, Short.MAX_VALUE))
         );
 
@@ -288,7 +290,7 @@ public class Tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        
         juego.addFila();
         
         aux = juego.getRaiz();
@@ -308,6 +310,7 @@ public class Tablero extends javax.swing.JFrame {
                 javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
 
                 dibujo.setBorder(border);
+                dibujo.setName(""+(juego.posFila-1)+c);
                 add(dibujo);
                 
                 MouseListener ml = new MouseListener() {
@@ -318,6 +321,7 @@ public class Tablero extends javax.swing.JFrame {
                         public void mousePressed(MouseEvent e) {
                             String numero = ((JLabel)e.getSource()).getName();
                             
+                           
                             //((JLabel)e.getSource()).setIcon(objetos.getIcon());
                             ((JLabel)e.getSource()).setIcon(new ImageIcon(objetos.getImagen().getImage().getScaledInstance(75, 75, BufferedImage.SCALE_SMOOTH)));
                             editarMatriz(objetos.getTipo(), objetos.getNombre(), numero);
@@ -343,7 +347,7 @@ public class Tablero extends javax.swing.JFrame {
                 
                 posX = posX + 80;
                 dibujo = dibujo.getSiguiente();
-                
+                //juego.PosCol++;
             }
             posY = posY - 80;
         
@@ -362,7 +366,7 @@ public class Tablero extends javax.swing.JFrame {
     
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        
         
         juego.addCol();
         posX = columnas;
@@ -383,6 +387,7 @@ public class Tablero extends javax.swing.JFrame {
                 javax.swing.border.Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
 
                 dibujo.setBorder(border);
+                dibujo.setName(""+c+(juego.PosCol-1));
                 add(dibujo);
                 
                 MouseListener ml = new MouseListener() {
@@ -392,6 +397,9 @@ public class Tablero extends javax.swing.JFrame {
                         @Override
                         public void mousePressed(MouseEvent e) {
                             String numero = ((JLabel)e.getSource()).getName();
+                            
+                            JLabel nuevo = ((JLabel)e.getSource());
+                            numero = nuevo.getName();
                             
                             //((JLabel)e.getSource()).setIcon(objetos.getIcon());
                             ((JLabel)e.getSource()).setIcon(new ImageIcon(objetos.getImagen().getImage().getScaledInstance(75, 75, BufferedImage.SCALE_SMOOTH)));
@@ -420,7 +428,9 @@ public class Tablero extends javax.swing.JFrame {
                 posY = posY - 80;
                 dibujo = dibujo.getArriba();
                 
+                
             }
+            //juego.posFila++;
             posX = posX + 80;
             columnas = posX;
             
@@ -428,43 +438,129 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String ruta = "c:\\pila.txt";;
-        File archivo = new File(ruta);
-        BufferedWriter bw = null;
-        if(archivo.exists()) {
-            try {
-                // El fichero ya existe
-                bw = new BufferedWriter(new FileWriter(archivo));
-            } catch (IOException ex) {
-                Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+        File archivo;
+        FileWriter leer = null;
+        PrintWriter pw = null;
+        String nombre = null;
+        
+        try{
+            nombre = Tablero.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"archivos/archivo.dot";
+            
+            archivo = new File(nombre);
+            if(archivo.createNewFile()){
+                System.out.println("Archivo Creado Correctamente");
             }
-            try {
-                bw.write("El fichero de texto ya estaba creado.");
-            } catch (IOException ex) {
-                Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(IOException e){
+            System.err.println("Problemas al crear el archivo "+e);
+        } 
+        
+        try{
+            nombre = Tablero.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"archivos/archivo.dot";
+            leer = new FileWriter(nombre);
+            pw = new PrintWriter(leer);
+            pw.println("digraph G");
+            pw.println("{");
+            pw.println("rankdir = LR;");
+            pw.println("node [shape = record,height=.1];");
+            if(tipoDatos.equals("cola")){
+                int c = 0;
+                while(graf != null){
+                    pw.println("node"+c+"[label = \"<f0> |<f1> "+graf.getTipo()+ ", "+graf.getNombre()+ " |<f2> \"];");
+                    graf = graf.getSiguiente();
+                    c++;
+                }
+                c--;
+                while(c != 0){
+                    pw.println("\"node"+c+"\":f2 -> \"node"+(c-1)+"\":f1;");
+                    c--;
+                }
+            }else{
+                int c = 0;
+                while(graf != null){
+                    pw.println("node"+c+"[label = \"<f0> |<f1> "+graf.getTipo()+ ", "+graf.getNombre()+ " |<f2> \"];");
+                    graf = graf.getAnterior();
+                    c++;
+                }
+                c--;
+                while(c != 0){
+                    pw.println("\"node"+c+"\":f2 -> \"node"+(c-1)+"\":f1;");
+                    c--;
+                }
             }
-        } else {
-            try {
-                // El fichero no existe y hay que crearlo
-                bw = new BufferedWriter(new FileWriter(archivo));
-            } catch (IOException ex) {
-                Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                bw.write("Acabo de crear el fichero de texto.");
-            } catch (IOException ex) {
-                Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+            pw.println("}");
+            System.out.println("escrito");
+        }catch (Exception e){
+            System.err.println("error "+e);
+        }finally{
+            try{
+                if(leer != null)
+                    leer.close();
+                
+            }catch (Exception e2){
             }
         }
-        try {
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ArchivoMatriz();
+        crearImagen(nombre);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    public void crearImagen(String dir){
+        /*try{
+            String [] comando = {"cd", "C:\\Program Files (x86)\\Graphviz2.38\\bin"};
+            Runtime.getRuntime().exec(comando);
+        }catch (IOException e){
+            System.out.println(e);
+        }*/
+        
+        if(tipoDatos.equals("cola")){
+            try{
+                String [] comando2 = {"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe","-Tpng", dir, "-o", "C:\\Users\\esdras\\Desktop\\dibujo\\cola.png"};
+                Runtime.getRuntime().exec(comando2);
+            }catch (IOException es){
+                System.out.println(es);
+            }
+        }else{
+            try{
+                String [] comando2 = {"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe","-Tpng", dir, "-o", "C:\\Users\\esdras\\Desktop\\dibujo\\pila.png"};
+                Runtime.getRuntime().exec(comando2);
+            }catch (IOException es){
+                System.out.println(es);
+            }
+        }
+        
+        /*
+        try{
+            String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+            String fileInputPath = dir;
+            String fileOutputPath;
+            if(tipoDatos.equals("cola"))
+                fileOutputPath = "C:\\Users\\esdras\\Desktop\\dibujo\\cola.png";
+            else
+                fileOutputPath = "C:\\Users\\esdras\\Desktop\\dibujo\\pila.png";
+            String tParam = "-Tpng";
+            String tOParam = "-o";
+            
+            
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
+            Runtime rt = Runtime.getRuntime();
+            rt.exec( cmd );
+            
+            System.out.println("entro a crear imagen");
+        }catch(Exception ex){
+            ex.printStackTrace();
+        } finally {
+        }*/
+    }
     /**
      * @param args the command line arguments
      */
@@ -475,7 +571,77 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel objLista;
     // End of variables declaration//GEN-END:variables
+
+    private void ArchivoMatriz() {
+        File archivo;
+        FileWriter leer = null;
+        PrintWriter pw = null;
+        String nombre = null;
+        NodoMatriz dibujar = juego.getRaiz();
+        NodoMatriz auxiliar = dibujar;
+        
+        try{
+            nombre = Tablero.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"archivos/matriz.dot";
+            
+            archivo = new File(nombre);
+            if(archivo.createNewFile()){
+                System.out.println("Archivo Creado Correctamente");
+            }
+        }catch(IOException e){
+            System.err.println("Problemas al crear el archivo "+e);
+        } 
+        
+        try{
+            nombre = Tablero.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"archivos/matriz.dot";
+            leer = new FileWriter(nombre);
+            pw = new PrintWriter(leer);
+            pw.println("digraph structs");
+            pw.println("{");
+            pw.println("node [shape = record,height=.1];");
+             
+
+            for(int c=0; c < juego.posFila; c++){
+                for(int c2 = 0; c2 < juego.PosCol; c2++){
+                    pw.println("struct"+c+c2 + "[shape = record, label = \" <i> |{ <ar> |{"+dibujar.getTipo()+"\n"+dibujar.getNombre()+"} | <ab>}| <d>\"];");
+                    dibujar = dibujar.getSiguiente();
+                    
+                }
+                auxiliar = auxiliar.getArriba();
+                dibujar = auxiliar;
+                        
+            }
+            
+            for(int c=0; c < juego.posFila; c++){
+                for(int c2 = 0; c2 < juego.PosCol; c2++){
+                    if(c == (juego.posFila-1)){
+                        pw.println("\"struct"+c+c2+"\":d -> \"struct"+c+(c2+1)+"\":i;");
+                        pw.println("\"struct"+c+(c2+1)+"\":i -> \"struct"+c+c2+"\":d;");
+                    }else{
+                        pw.println("\"struct"+c+c2+"\":d -> \"struct"+c+(c2+1)+"\":i;");
+                        pw.println("\"struct"+c+(c2+1)+"\":i -> \"struct"+c+c2+"\":d;");
+                        pw.println("\"struct"+c+c2+"\":ar -> \"struct"+(c+1)+c2+"\":ab;");
+                        pw.println("\"struct"+(c+1)+c2+"\":ab -> \"struct"+c+c2+"\":ar;");
+                    }
+                    
+                }
+                        
+            }
+            
+            pw.println("}");
+            System.out.println("escrito");
+        }catch (Exception e){
+            System.err.println("error "+e);
+        }finally{
+            try{
+                if(leer != null)
+                    leer.close();
+                
+            }catch (Exception e2){
+            }
+        }
+    }
 }

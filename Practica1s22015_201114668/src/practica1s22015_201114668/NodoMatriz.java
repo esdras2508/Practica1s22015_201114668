@@ -34,7 +34,13 @@ public class NodoMatriz extends JLabel{
     public String getNumero(){
         return Numero;
     }
-    
+    public String getTipo(){
+        return Tipo;
+    }
+    public String getNombre()
+    {
+        return Nombre;
+    }
     
     public void setTipo(String tipo){
         Tipo = tipo;
