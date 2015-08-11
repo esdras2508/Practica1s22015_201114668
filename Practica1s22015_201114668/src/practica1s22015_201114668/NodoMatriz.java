@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 public class NodoMatriz extends JLabel{
     NodoMatriz siguiente, anterior, arriba, abajo;
     String Tipo, Nombre;
+    String Numero;
     ImageIcon Fondo;
     
     
@@ -30,11 +31,26 @@ public class NodoMatriz extends JLabel{
     public NodoMatriz getAbajo(){
         return abajo;
     }
+    public String getNumero(){
+        return Numero;
+    }
     
     
-    public NodoMatriz(String tipo, String nombre, ImageIcon fondo, NodoMatriz s, NodoMatriz ant, NodoMatriz up, NodoMatriz down){
+    public void setTipo(String tipo){
+        Tipo = tipo;
+    } 
+    public void setNombre(String nombre){
+        Nombre = nombre;
+    }
+    public void setNumero(String numero){
+        Numero = numero;
+    }
+    
+    
+    public NodoMatriz(String tipo, String nombre, String pos, ImageIcon fondo, NodoMatriz s, NodoMatriz ant, NodoMatriz up, NodoMatriz down){
         Tipo = tipo;
         Nombre = nombre;
+        Numero = pos;
         Fondo = fondo;
         this.setIcon(fondo);
         siguiente = s;
@@ -42,8 +58,8 @@ public class NodoMatriz extends JLabel{
         arriba = up;
         abajo = down;
     }
-    public NodoMatriz(String tipo, String nombre, ImageIcon fondo){
-        this(tipo, nombre, fondo, null, null, null, null);
+    public NodoMatriz(String tipo, String nombre, String pos, ImageIcon fondo){
+        this(tipo, nombre, pos, fondo, null, null, null, null);
     }
     
     

@@ -343,15 +343,15 @@ public class Creacion extends javax.swing.JFrame{
         if(tipo.equals("Ficha")){
             ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
         }else if(tipo.equals("Suelo")){
-            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/suelo.gif"));
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/suelo.png"));
         }else if(tipo.equals("Pared")){
-            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/pared.jpg"));
         }else if(tipo.equals("Goomba")){
-            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/goomba.gif"));
         } else if(tipo.equals("Koopa")){
-            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/koopa.jpg"));
         }else if(tipo.equals("Hongo de Vida")){
-            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/ficha.png"));
+            ImgObjeto = new ImageIcon(ClassLoader.getSystemResource("imagenes/vida.png"));
         }
         
         
@@ -371,11 +371,11 @@ public class Creacion extends javax.swing.JFrame{
         // TODO add your handling code here:
         Tablero ir;
         if(ManejoDatos.getSelectedItem().equals("Pila")){
-            ir = new Tablero(objetos.getFin());
+            ir = new Tablero(objetos.getFin(), "pila");
             this.setVisible(false);
             ir.setVisible(true);
         }else if(ManejoDatos.getSelectedItem().equals("Cola")){
-            ir = new Tablero(objetos.getInicio());
+            ir = new Tablero(objetos.getInicio(), "cola");
             this.setVisible(false);
             ir.setVisible(true);
         }
